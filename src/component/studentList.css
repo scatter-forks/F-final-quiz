@@ -1,0 +1,53 @@
+body,
+html,
+h2,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(8, 12.8%);
+  grid-template-rows: repeat(6, 10%);
+  height: 400px;
+  list-style: none;
+}
+
+main {
+  border: 1px solid transparent;
+  background-color: #f7f7f7;
+}
+
+h2 {
+  margin: 15px 10px;
+}
+
+.students {
+  width: 94%;
+  margin: 0 auto;
+}
+
+main .students ul li,
+input {
+  width: 80%;
+  border-color: transparent;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background-color: #eeeeee;
+}
+input:hover {
+  cursor: pointer;
+}
