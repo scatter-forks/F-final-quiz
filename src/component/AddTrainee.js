@@ -1,25 +1,36 @@
 import React, { Component } from 'react';
-import { Input, Tooltip, Button, message } from 'antd';
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { Input, Button, message } from 'antd';
 import './addTrainee.css';
 
 export default class AddTrainee extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: '',
+      email: '',
+      office: '',
+      zoomId: '',
+      github: '',
+    };
+  }
+
   onChange = (event) => {
     this.setState({
       [event.target.id]: event.target.value,
     });
   };
 
-  submitProduct = () => {
-    fetch('http://localhost:8080/product/add', {
+  addTrainee = () => {
+    fetch('http://localhost:8080/trainees', {
       method: 'POST',
       mode: 'cors',
       headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(this.state),
     })
       .then((response) => {
+        console.log(JSON.stringify(this.state));
         if (response.ok) {
           return Promise.resolve();
         }
@@ -45,16 +56,7 @@ export default class AddTrainee extends Component {
           添加学员
         </h1>
         <h3 style={{ fontWeight: '700' }}>*姓名</h3>
-        <Input
-          id="name"
-          onChange={this.onChange}
-          placeholder="Enter your name"
-          suffix={
-            <Tooltip title="Extra information">
-              <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
-            </Tooltip>
-          }
-        />
+        <Input id="name" onChange={this.onChange} placeholder="Enter your name" />
         <br />
         <br />
         <h3 style={{ fontWeight: '700' }}>*邮箱</h3>
@@ -66,7 +68,7 @@ export default class AddTrainee extends Component {
         <br />
         <br />
         <h3 style={{ fontWeight: '700' }}>*Zoom ID</h3>
-        <Input id="zoom" onChange={this.onChange} placeholder="Enter your product price" />
+        <Input id="zoomId" onChange={this.onChange} placeholder="Enter your product price" />
         <br />
         <br />
         <h3 style={{ fontWeight: '700' }}>*GitHub帐号</h3>
@@ -80,11 +82,9 @@ export default class AddTrainee extends Component {
           style={{
             display: 'inline-block',
             width: '100px',
-            // transform: 'translateX(-50%)',
-            // marginLeft: '50%',
             marginBottom: '100px',
           }}
-          onClick={this.submitProduct}
+          onClick={this.addTrainee}
         >
           提交
         </Button>
@@ -95,7 +95,6 @@ export default class AddTrainee extends Component {
           style={{
             display: 'inline-block',
             width: '100px',
-            // transform: 'translateX(-50%)',
             marginLeft: '5%',
             marginBottom: '100px',
           }}
