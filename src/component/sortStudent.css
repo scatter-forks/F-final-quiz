@@ -1,0 +1,20 @@
+.main {
+  border: 1px solid transparent;
+  background-color: #f7f7f7;
+}
+
+header {
+  margin: 15px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+header h1 {
+  margin: 0;
+  padding: 0;
+}
+header button {
+  width: 10%;
+  color: #fff;
+  border-color: transparent;
+  background-color: #ea5455;
+}

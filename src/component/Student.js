@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StudentList from './StudentList';
+import SortStudents from './SortStudents';
 
 export default class Student extends Component {
   constructor(props) {
@@ -71,6 +72,7 @@ export default class Student extends Component {
     return (
       <div>
         <main>
+          <SortStudents />
           <h2>学员列表</h2>
           <div className="students">
             <ul>
