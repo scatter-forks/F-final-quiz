@@ -1,3 +1,4 @@
+/* TODO 不要在顶层使用标签选择器，尽量使用类选择器 */
 input {
   height: 30px;
   width: 100%;

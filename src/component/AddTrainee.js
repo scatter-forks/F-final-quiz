@@ -5,6 +5,7 @@ import './addTrainee.css';
 export default class AddTrainee extends Component {
   constructor() {
     super();
+    // TODO 冗余的state，下面使用form的submit即可获得数据
     this.state = {
       name: '',
       email: '',
@@ -14,6 +15,7 @@ export default class AddTrainee extends Component {
     };
   }
 
+  // TODO 冗余的方法
   onChange = (event) => {
     this.setState({
       [event.target.id]: event.target.value,
@@ -36,6 +38,7 @@ export default class AddTrainee extends Component {
         }
         return Promise.reject();
       })
+      // TODO 不需要再加一个then
       .then(() => {
         message.success('添加成功');
       })
@@ -46,7 +49,9 @@ export default class AddTrainee extends Component {
 
   render() {
     return (
+      // TODO 多使用语义化标签
       <div style={{ marginTop: '30px' }}>
+        {/* TODO 不是变化样式时尽量不要使用inline style */}
         <h1
           style={{
             fontWeight: '700',
@@ -65,6 +70,7 @@ export default class AddTrainee extends Component {
         <br />
         <h3 style={{ fontWeight: '700' }}>*办公室</h3>
         <Input id="office" onChange={this.onChange} placeholder="Enter your product name" />
+        {/* TODO 更推荐使用样式控制，而不是添加过多的 br 标签 */}
         <br />
         <br />
         <h3 style={{ fontWeight: '700' }}>*Zoom ID</h3>
